@@ -22,5 +22,5 @@ jobs:
     - name: Checkout Push to Registry action
       uses: actions/checkout@v3
     - name: build
-        shell: bash
-        run: podman build . -t test:latest
+      shell: bash
+      run: podman build . -t test:latest
