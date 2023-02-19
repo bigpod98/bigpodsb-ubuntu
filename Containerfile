@@ -14,8 +14,7 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 RUN rpm-ostree override remove evince-djvu evince-libs evince-previewer evince-thumbnailer gnome-tour \
     gnome-user-docs nvidia-gpu-firmware && \
     rpm-ostree override remove  vim-minimal virtualbox-guest-additions yelp yelp-libs yelp-xsl && \
-    rpm-ostree install https://packages.microsoft.com/yumrepos/vscode/Packages/c/code-1.75.1-1675893486.el7.x86_64.rpm && \
-    rpm-ostree install gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock \
+    rpm-ostree install code gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock \
     gnome-shell-extension-gsconnect nautilus-gsconnect just libgda libgda-sqlite libratbag-ratbagd openssl podman-docker \
     python3-input-remapper tailscale virt-manager alacritty htop wireguard-tools webapp-manager yaru-theme fish  && \
     rm -f /var/lib/unbound/root.key && \
@@ -28,6 +27,7 @@ RUN rpm-ostree override remove evince-djvu evince-libs evince-previewer evince-t
     rm -f /etc/yum.repos.d/lyessaadi-blackbox.repo && \
     rm -f /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo && \
     rm -f /etc/yum.repos.d/tailscale.repo && \
+    rm -f /etc/yum.repos.d/vscode.repo && \
     rm -f /etc/yum.repos.d/sunwire-input-remapper-fedora-37.repo && \
     rm -f /etc/yum.repos.d/kylegospo-webapp-manager-fedora-37.repo && \
     sed -i 's/#DefaultTimeoutStopSec.*/DefaultTimeoutStopSec=15s/' /etc/systemd/user.conf && \
