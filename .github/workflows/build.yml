@@ -2,7 +2,7 @@ name: build-bigpod
 
 on:
   schedule:
-    - cron: '21 20 * * *'  # 9:20pm everyday
+    - cron: '12 00 * * *'  # 9:20pm everyday
   push:
     branches:
       - main
@@ -23,4 +23,5 @@ jobs:
       uses: actions/checkout@v3
     - name: build
       shell: bash
-      run: podman build . -t test:latest
+      run: podman build . -t ghcr.io/bigpod98/ubuntu/ubuntu
+    -
