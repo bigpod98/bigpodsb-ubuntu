@@ -26,5 +26,5 @@ jobs:
       run: podman build . -t ghcr.io/bigpod98/bigpodsp/ubuntu:latest
     - name: login
       shell: bash
-      run: podman login -u bigpod98 -p ${{ secrets.GITHUB_TOKEN }}
+      run: podman login ghcr.io -u bigpod98 -p ${{ secrets.GITHUB_TOKEN }}
       
