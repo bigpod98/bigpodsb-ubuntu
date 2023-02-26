@@ -26,7 +26,6 @@ RUN rpm-ostree override remove evince-djvu evince-libs evince-previewer evince-t
     systemctl enable rpm-ostree-countme.service && \
     systemctl enable tailscaled.service && \
     fc-cache -f /usr/share/fonts/ubuntu && \
-    rm -f /etc/yum.repos.d/lyessaadi-blackbox.repo && \
     rm -f /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo && \
     rm -f /etc/yum.repos.d/tailscale.repo && \
     rm -f /etc/yum.repos.d/vscode.repo && \
