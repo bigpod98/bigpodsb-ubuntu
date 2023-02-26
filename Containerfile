@@ -8,6 +8,7 @@ COPY usr /usr
 RUN mkdir /etc/udev -p
 COPY --from=ghcr.io/ublue-os/udev-rules /ublue-os-udev-rules.noarch.rpm /ublue-os-udev-rules.noarch.rpm
 
+RUN wget https://github.com/terrapkg/subatomic-repos/raw/main/terra.repo -O /etc/yum.repos.d/terra.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/sunwire/input-remapper/repo/fedora-37/sunwire-input-remapper-fedora-37.repo -O /etc/yum.repos.d/sunwire-input-remapper-fedora-37.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-37/kylegospo-webapp-manager-fedora-37.repo -O /etc/yum.repos.d/kylegospo-webapp-manager-fedora-37.repo
@@ -26,7 +27,7 @@ RUN rpm-ostree override remove evince-djvu evince-libs evince-previewer evince-t
     systemctl enable rpm-ostree-countme.service && \
     systemctl enable tailscaled.service && \
     fc-cache -f /usr/share/fonts/ubuntu && \
-    rm -f /etc/yum.repos.d/lyessaadi-blackbox.repo && \
+    rm -f /etc/yum.repos.d/terra.repo && \
     rm -f /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo && \
     rm -f /etc/yum.repos.d/tailscale.repo && \
     rm -f /etc/yum.repos.d/vscode.repo && \
