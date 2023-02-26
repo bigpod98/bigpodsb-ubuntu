@@ -1,4 +1,4 @@
-[![build-ublue](https://github.com/ublue-os/ubuntu/actions/workflows/build.yml/badge.svg)](https://github.com/ublue-os/ubuntu/actions/workflows/build.yml)
+[![build-ublue](https://github.com/ublue-os/ubuntu/actions/workflows/build.yml/badge.svg)](https://github.com/bigpod98/bigpodsb-ubuntu/actions/workflows/build.yml)
 
 # Ubuntu
 A familiar(ish) Ubuntu desktop for Fedora Silverblue.
