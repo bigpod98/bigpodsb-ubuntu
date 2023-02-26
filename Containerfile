@@ -15,7 +15,7 @@ RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfra
 RUN rpm-ostree override remove evince-djvu evince-libs evince-previewer evince-thumbnailer gnome-tour gnome-user-docs nvidia-gpu-firmware && \
     ostree container commit && \
     rpm-ostree install /ublue-os-udev-rules.noarch.rpm && ostree container commit && rm -rf /ublue-os-udev-rules.noarch.rpm && \
-    rpm-ostree override remove vim-minimal virtualbox-guest-additions yelp yelp-libs yelp-xsl && \
+    rpm-ostree override remove gnome-software-rpm-ostree vim-minimal virtualbox-guest-additions yelp yelp-libs yelp-xsl && \
     rpm-ostree install code chromium gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock \
     gnome-shell-extension-gsconnect nautilus-gsconnect just libgda libgda-sqlite libratbag-ratbagd openssl podman-docker \
     python3-input-remapper tailscale virt-manager alacritty htop wireguard-tools webapp-manager yaru-theme fish dbus-x11 && \
