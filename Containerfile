@@ -6,16 +6,17 @@ COPY etc /etc
 COPY usr /usr
 RUN rpm
 
-RUN mkdir /etc/udev -p
+COPY --from=ghcr.io/ublue-os/udev-rules:latest /ublue-os-udev-rules /
+
 COPY --from=ghcr.io/ublue-os/udev-rules /ublue-os-udev-rules.noarch.rpm /ublue-os-udev-rules.noarch.rpm
 
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/sunwire/input-remapper/repo/fedora-37/sunwire-input-remapper-fedora-37.repo -O /etc/yum.repos.d/sunwire-input-remapper-fedora-37.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-37/kylegospo-webapp-manager-fedora-37.repo -O /etc/yum.repos.d/kylegospo-webapp-manager-fedora-37.repo
 RUN rpm-ostree override replace --experimental --from repo=copr:copr.fedorainfracloud.org:kylegospo:gnome-vrr mutter gnome-control-center gnome-control-center-filesystem
+
 RUN rpm-ostree override remove evince-djvu evince-libs evince-previewer evince-thumbnailer gnome-tour gnome-user-docs nvidia-gpu-firmware && \
     ostree container commit && \
-    rpm-ostree install /ublue-os-udev-rules.noarch.rpm && ostree container commit && rm -rf /ublue-os-udev-rules.noarch.rpm && \
     rpm-ostree override remove gnome-software-rpm-ostree vim-minimal virtualbox-guest-additions yelp yelp-libs yelp-xsl && \
     rpm-ostree install code chromium gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock \
     gnome-shell-extension-gsconnect nautilus-gsconnect just libgda libgda-sqlite libratbag-ratbagd openssl podman-docker \
