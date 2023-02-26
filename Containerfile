@@ -8,7 +8,8 @@ RUN rpm
 
 RUN mkdir /etc/udev -p
 COPY --from=ghcr.io/ublue-os/udev-rules /ublue-os-udev-rules.noarch.rpm /ublue-os-udev-rules.noarch.rpm
-
+RUN rpm -ivh /ublue-os-udev-rules.noarch.rpm && ostree container commit
+RUN rpm-ostree override remove ublue-os-udev-rules
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/gnome-vrr/repo/fedora-$(rpm -E %fedora)/kylegospo-gnome-vrr-fedora-$(rpm -E %fedora).repo -O /etc/yum.repos.d/_copr_kylegospo-gnome-vrr.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/sunwire/input-remapper/repo/fedora-37/sunwire-input-remapper-fedora-37.repo -O /etc/yum.repos.d/sunwire-input-remapper-fedora-37.repo
 RUN wget https://copr.fedorainfracloud.org/coprs/kylegospo/webapp-manager/repo/fedora-37/kylegospo-webapp-manager-fedora-37.repo -O /etc/yum.repos.d/kylegospo-webapp-manager-fedora-37.repo
