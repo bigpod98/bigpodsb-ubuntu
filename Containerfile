@@ -4,6 +4,7 @@ FROM ghcr.io/ublue-os/base:${FEDORA_MAJOR_VERSION}
 
 COPY etc /etc
 COPY usr /usr
+RUN rpm
 
 RUN mkdir /etc/udev -p
 COPY --from=ghcr.io/ublue-os/udev-rules /ublue-os-udev-rules.noarch.rpm /ublue-os-udev-rules.noarch.rpm
