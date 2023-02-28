@@ -17,7 +17,7 @@ RUN rpm-ostree override remove evince-djvu evince-libs evince-previewer evince-t
     rpm-ostree override remove gnome-software-rpm-ostree vim-minimal virtualbox-guest-additions yelp yelp-libs yelp-xsl && \
     rpm-ostree install code chromium gnome-shell-extension-appindicator gnome-shell-extension-dash-to-dock \
     gnome-shell-extension-gsconnect nautilus-gsconnect just libgda libgda-sqlite libratbag-ratbagd openssl podman-docker \
-    python3-input-remapper tailscale virt-manager alacritty htop wireguard-tools webapp-manager yaru-theme fish dbus-x11 && \
+    python3-input-remapper tailscale virt-manager alacritty htop wireguard-tools webapp-manager yaru-theme fish dbus-x11 iotop && \
     rm -f /var/lib/unbound/root.key && \
     rm -f /var/lib/freeipmi/ipckey && \
     systemctl unmask dconf-update.service && \
